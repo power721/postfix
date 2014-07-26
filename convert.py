@@ -106,6 +106,7 @@ def convert_num(infix, rtype=str):
     return res
 
 
+
 def eval_infix(infix, scope={}):
   return eval(infix, scope)
 
@@ -145,6 +146,8 @@ def test(infix, func=convert_num):
 
   print 'postfix: ', ' '.join(postfix), ' = ', res
   return res
+
+
 
 if __name__ == '__main__':
   test('a + b * c + (d / e + f) * g', convert)
