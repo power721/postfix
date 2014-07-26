@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding=utf8 -*-
-from Stack import Stack
+from stack import Stack
     
 def convert(infix):
   '''
