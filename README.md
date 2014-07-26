@@ -7,6 +7,7 @@ use unittest module for unit testing
 
 supported operators include +, -, *, /, %, ()
 
+
 Usage: 
 
   conver(infix, rtype=str)
@@ -18,14 +19,13 @@ Usage:
 
   @parm rtype the return type
 
-  @return postfix expression string as default 
-
+  @return postfix expression string as default, 
           otherwise a list continas all operators and operands
 
 
 NOTE: not support negative numbers yet
 
 
+[postfix](http://en.wikipedia.org/wiki/Reverse_Polish_notation)
+
 [unittest](https://docs.python.org/2/library/unittest.html)
-
-
