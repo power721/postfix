@@ -1,6 +1,9 @@
 # -*- coding=utf8 -*-
 
 class Stack:
+  '''
+  a simple stack class based on list
+  '''
   def __init__(self):
     self.stack = []
   

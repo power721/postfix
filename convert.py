@@ -2,7 +2,7 @@
 # -*- coding=utf8 -*-
 from stack import Stack
     
-def convert(infix):
+def convert(infix, rtype=str):
   '''
     convert infix to postfix with variables(single char)
   '''
@@ -41,9 +41,13 @@ def convert(infix):
       
   while not stack.empty():
     res.append(stack.pop())
-  return res
 
-def convert_num(infix):
+  if rtype == str:
+    return ' '.join(res)
+  else:
+    return res
+
+def convert_num(infix, rtype=str):
   '''
     convert infix to postfix with numbers
   '''
@@ -90,13 +94,17 @@ def convert_num(infix):
         if s == '(':
           break
         res.append(s)
-    ## print c, stack.stack ##
       
   if flag:
     res.append(str(num))
   while not stack.empty():
     res.append(stack.pop())
-  return res
+
+  if rtype == str:
+    return ' '.join(res)
+  else:
+    return res
+
 
 def eval_infix(infix, scope={}):
   return eval(infix, scope)
@@ -119,7 +127,6 @@ def eval_postfix(postfix, scope={}):
       op2 = stack.pop()
     if not stack.empty():
       op1 = stack.pop()
-    ##print op1, c, op2
     res = eval(str(op1) + c + str(op2), scope)
     stack.push(res)
 
@@ -133,11 +140,10 @@ def test(infix, func=convert_num):
   infix_res = eval_infix(infix, scope)
   print 'infix:   ', infix, '=', infix_res
 
-  postfix = func(infix)
+  postfix = func(infix, rtype=list)
   res = eval_postfix(postfix, scope)
 
   print 'postfix: ', ' '.join(postfix), ' = ', res
-  #assert res == infix_res
   return res
 
 if __name__ == '__main__':
